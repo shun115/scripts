@@ -1,0 +1,8 @@
+[user]
+	name = Shunsuke Shiino
+	email = shunsuke.shiino@gmail.com
+[color]
+	ui = true
+[alias]
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	logp = log --stat --pretty=format:\"%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d\"

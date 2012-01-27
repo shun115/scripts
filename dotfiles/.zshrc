@@ -1,12 +1,3 @@
-# prompt
-local GREEN=$'%{\e[1;32m%}'
-local DEFAULT=$'%{\e[m%}'
-PROMPT=$GREEN'[${USER}@${HOST%%.*} %1~]%(!.#.$) '$DEFAULT
-RPROMPT="%T"                      # 右側に時間を表示する
-setopt transient_rprompt          # 右側まで入力がきたら時間を消す
-setopt prompt_subst               # 便利なプロント
-bindkey -e                        # emacsライクなキーバインド
-
 # export
 export LANG=ja_JP.UTF-8           # 日本語環境
 export EDITOR=emacs               # エディタはemacs
@@ -42,8 +33,10 @@ setopt append_history             # 履歴を追記
 alias p='ipython'
 alias ls='ls -G'
 alias gosh='/usr/local/Cellar/gauche/0.9.2/bin/gosh-rl'
-alias g='hub'
-alias gl="g log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'"
+
+# git
+alias git='/usr/local/Cellar/git/1.7.8.1/bin/git'
+source /usr/local/Cellar/git/1.7.8.1/etc/bash_completion.d/git-completion.bash
 
 # python
 source /Users/shun/.pythonbrew/etc/bashrc
@@ -54,3 +47,12 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export VIRTUALENVWRAPPER_PYTHON=~/.pythonbrew/pythons/Python-2.7.2/bin/python
 source ~/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh
+
+# prompt
+local GREEN=$'%{\e[1;32m%}'
+local DEFAULT=$'%{\e[m%}'
+PROMPT=$GREEN'[${USER}@${HOST%%.*} %1~$(__git_ps1 " (%s)")]%(!.#.$) '$DEFAULT
+RPROMPT="%T"                      # 右側に時間を表示する
+setopt transient_rprompt          # 右側まで入力がきたら時間を消す
+setopt prompt_subst               # 便利なプロント
+bindkey -e                        # emacsライクなキーバインド
