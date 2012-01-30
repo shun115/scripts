@@ -6,6 +6,7 @@ export LESSOPEN='| /usr/local/Cellar/source-highlight/3.1.5/bin/src-hilite-lessp
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+export GREP_OPTIONS="--color=auto"
 
 # zsh
 autoload -U compinit              # 強力な補完機能
