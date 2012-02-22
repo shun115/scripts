@@ -57,3 +57,9 @@ RPROMPT="%T"                      # 右側に時間を表示する
 setopt transient_rprompt          # 右側まで入力がきたら時間を消す
 setopt prompt_subst               # 便利なプロント
 bindkey -e                        # emacsライクなキーバインド
+
+# ruby
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "/Users/shun/.rvm/scripts/rvm" ]] && source "/Users/shun/.\
+rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
