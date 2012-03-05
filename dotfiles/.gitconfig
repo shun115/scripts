@@ -5,4 +5,5 @@
 	ui = true
 [alias]
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+        histp = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
 	logp = log -p --stat --pretty=format:\"%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d\"
