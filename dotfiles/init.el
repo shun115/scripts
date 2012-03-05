@@ -38,17 +38,22 @@
 (setq make-backup-files nil)
 
 ;; Japanese
-(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8-unix)
 (set-language-environment "Japanese")
-(set-terminal-coding-system 'utf-8-dos)
-(set-default-coding-systems 'utf-8-dos)
-(set-buffer-file-coding-system 'utf-8-dos)
+(set-default-coding-systems 'utf-8-unix)
+(setq default-buffer-file-coding-system 'utf-8-unix)
+
+;; Fonts
+(create-fontset-from-ascii-font "Menlo-14:weight=normal:slant=normal" nil "menlokakugo")
+(set-fontset-font "fontset-menlokakugo" 'unicode (font-spec :family "Hiragino Kaku Gothic ProN" ) nil 'append)
+(add-to-list 'default-frame-alist '(font . "fontset-menlokakugo"))
+(setq face-font-rescale-alist '((".*Hiragino.*" . 1.0) (".*Menlo.*" . 1.0)))
 
 ;; window size
 (setq initial-frame-alist
       (append
-       '((width . 180)    ; フレーム幅(文字数)
-	 (height . 60)   ; フレーム高(文字数)
+       '((width . 210)    ; フレーム幅(文字数)
+	 (height . 70)   ; フレーム高(文字数)
 	 ) initial-frame-alist))
 
 ;; highlight current line
@@ -91,6 +96,8 @@
 
 ;; anything.el
 (require 'anything-startup)
+(global-set-key (kbd "C-;") 'anything-filelist+)
+(setq anything-c-filelist-file-name "/tmp/all.filelist")
 
 ;; auto-install
 (require 'auto-install)
