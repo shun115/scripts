@@ -7,6 +7,7 @@ class MessageFilter
   end
 
   def detect?(text)
+    true
   end
 
 end
