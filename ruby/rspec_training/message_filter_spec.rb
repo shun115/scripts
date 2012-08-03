@@ -4,7 +4,7 @@ require 'rubygems'
 require 'rspec'
 require './message_filter'
 
-describe MessageFilter do
+describe MessageFilter, "with argument 'foo'" do
 
   before do
     @filter = MessageFilter.new 'foo'
