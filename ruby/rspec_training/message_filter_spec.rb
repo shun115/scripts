@@ -4,30 +4,35 @@ require 'rubygems'
 require 'rspec'
 require './message_filter'
 
+describe MessageFilter do
 
-share_examples_for "MessageFilter with argument 'foo'" do
+  share_examples_for "MessageFilter with argument 'foo'" do
 
-  it { should be_detect('hello from foo') }
+    it { should be_detect('hello from foo') }
 
 
-  it { should_not be_detect('hello, world') }
+    it { should_not be_detect('hello, world') }
 
-end
+  end
 
-describe MessageFilter, "with argument 'foo'" do
 
-  subject { MessageFilter.new 'foo' }
+  describe "with argument 'foo'" do
 
-  it_should_behave_like "MessageFilter with argument 'foo'"
+    subject { MessageFilter.new 'foo' }
 
-end
+    it_should_behave_like "MessageFilter with argument 'foo'"
 
-describe MessageFilter, "with argument 'foo','bar'" do
+  end
 
-  subject { MessageFilter.new('foo', 'bar') }
 
-  it { should be_detect('hello from bar') }
+  describe "with argument 'foo','bar'" do
+
+    subject { MessageFilter.new('foo', 'bar') }
+
+    it { should be_detect('hello from bar') }
  
-  it_should_behave_like "MessageFilter with argument 'foo'"
+    it_should_behave_like "MessageFilter with argument 'foo'"
+
+  end
 
 end
