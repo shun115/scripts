@@ -16,7 +16,7 @@ describe MessageFilter do
   end
 
 
-  describe "with argument 'foo'" do
+  context "with argument 'foo'" do
 
     subject { MessageFilter.new 'foo' }
 
@@ -25,7 +25,7 @@ describe MessageFilter do
   end
 
 
-  describe "with argument 'foo','bar'" do
+  context "with argument 'foo','bar'" do
 
     subject { MessageFilter.new('foo', 'bar') }
 
